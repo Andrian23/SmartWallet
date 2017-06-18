@@ -1,0 +1,25 @@
+doctype html
+html(lang="eng")
+    head
+        title Smart wallet
+        meta(charset="UTF-8")
+        include components/links
+    body(ng-app="myapp")
+        header
+            //include some modules into the header
+            include components/header
+        main
+
+            ng-view
+        footer
+            //include some modules into the header
+
+        script( src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
+        script( src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js")
+        script( src='../js/main.js')
+
+
+
+
+
+

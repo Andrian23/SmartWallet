@@ -1,0 +1,19 @@
+{
+  "js": [
+    "./node_modules/jquery/dist/jquery.js",
+    "./app/js/app.js",
+    "./app/js/config.js",
+    "./app/js/controllers/registerCtrl.js",
+    "./app/js/controllers/mainCtrl.js",
+    "./app/js/controllers/statisticCtrl.js",
+    "./app/js/controllers/historyCtrl.js",
+    "./app/js/userServices/userServices.js",
+    "./app/js/userServices/httpServices.js",
+    "./app/js/main.js",
+    "./app/js/second.js"
+  ],
+  "css": [
+  ],
+  "fonts": [
+  ]
+}

@@ -1,0 +1,26 @@
+
+
+//media screens
+@mixin mobile{
+  @media(max-width:#{720px - 1px}){
+    @content
+  };
+
+}
+@mixin tablet{
+  @media (min-width: #{700px - 1px})  and (max-width: 999px) {
+    @content
+  }
+}
+
+@mixin pc_s{
+  @media (min-width: #{1000px + 1px}) and (max-width: 1280px) {
+    @content
+  }
+}
+
+@mixin pc_l{
+  @media (min-width: #{1280px + 1px})and (max-width: 1400px) {
+    @content
+  }
+}

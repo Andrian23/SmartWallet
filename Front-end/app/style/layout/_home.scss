@@ -1,0 +1,107 @@
+#home-page {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  //background-image: url("../images/1.jpg");
+  background: #159957;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.home-title {
+  width: 100%;
+  text-align: center;
+  font-family: $publish-font;
+  font-size: 15vmin;
+  color: white;
+  margin: 0 auto;
+}
+.home-buttons {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  @media (min-width: $tablet) {
+
+  }
+}
+.btn {
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: white;
+  background: none;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+  @media (min-width: $mobile) {
+    width: 220px;
+    height: 60px;
+    font-size: 14px;
+  }
+  @media (min-width: $tablet) {
+    width: 230px;
+    height: 65px;
+    font-size: 15px;
+  }
+  @media (min-width: $desktop) {
+    width: 240px;
+    height: 70px;
+    font-size: 16px;
+  }
+}
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  transition: all 0.3s;
+}
+.btn-l,
+.btn-r {
+  border: 3px solid #fff;
+  color: #fff;
+  z-index: 1;
+}
+/* Button 1c */
+.btn-l:after {
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+.btn-r:after {
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: #fff;
+}
+.btn-l:hover,
+.btn-l:active,
+.btn-r:hover,
+.btn-r:active{
+  color: #157877;
+}
+.btn-l:hover:after,
+.btn-l:active:after,
+.btn-r:hover:after,
+.btn-r:active:after{
+  width: 100%;
+}
