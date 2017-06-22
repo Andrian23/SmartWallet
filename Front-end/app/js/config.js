@@ -13,10 +13,10 @@ app.config(function ($routeProvider) {
         , controllerAs: 'reg'
     }).when('/statistic', {
         templateUrl: "../views/statistic.html"
-        , controller: 'statisticCtrl'
-        , controllerAs: 'stat'
+        , controller: 'historyCtrl'
+        , controllerAs: 'his'
     }).when('/history', {
-        templateUrl: "../components/history.html"
+        templateUrl: "../views/history.html"
         , controller: 'historyCtrl'
         , controllerAs: 'his'
     })

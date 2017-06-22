@@ -68,9 +68,9 @@ table {
   //@media (max-width: $tablet) {
   //  padding: 0 30px;
   //}
-  @media (max-width: $mobile) {
-    justify-content: flex-start;
-  }
+  //@media (max-width: $mobile) {
+  //  justify-content: flex-start;
+  //}
 }
 
 a {
@@ -84,4 +84,8 @@ a {
     text-decoration: none;
     outline: 0;
   }
+}
+body {
+  //background: #fdfdfd;
+  background: #ddd url(../img/bg.jpg) repeat top left;
 }
