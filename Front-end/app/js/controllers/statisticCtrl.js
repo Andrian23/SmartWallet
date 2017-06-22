@@ -1,4 +1,4 @@
-app.controller('historyCtrl', ['userService','htpServices', function (userService, httpServices, $scope) {
+app.controller('historyCtrl', ['userService','httpService', function (userService, httpServices, $scope) {
     var vm = this;
 //your code should be here
 

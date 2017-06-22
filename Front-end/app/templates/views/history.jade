@@ -1,0 +1,29 @@
+div#header-container
+    div.btn-menu(onclick="openNav()")
+        i.fa.fa-bars.fa-lg
+    div.header-block.header-user-name
+        span {{my.user.name}} {{my.user.sname}}
+    div.header-block.header-balance
+        span Balance: {{my.balance}} грн
+    div.header-block.header-expenses
+        span Expenses: {{my.balanceExpences}} грн
+    div.logout-block
+        i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
+h1 HISTORY
+
+
+table(style="border:2px solid black")
+    tr(style="border:2px solid black; width:100px")
+        th(ng-click="order='date'") DATE
+        th(ng-click="order='count'") SUM
+        th(ng-click='filter="title"') TITLE
+        th(ng-click="order='type'") TYPE
+        th COMMENTS
+    tr(ng-repeat="x in his.totalBalance| orderBy: order | filter:date")
+        td(style="border:2px solid black; width:100px") {{x.date}}
+        td(style="border:2px solid black; width:100px") {{x.count}}  UAH
+        td(style="border:2px solid black; width:100px") {{x.title}}
+        td(style="border:2px solid black; width:100px") {{x.type}}
+        td(style="border:2px solid black; width:100px") {{x.description}}
+
+

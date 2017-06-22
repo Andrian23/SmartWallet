@@ -1,0 +1,114 @@
+section.container
+
+    div#main-container
+        div#header-container
+            div.btn-menu(onclick="openNav()")
+                i.fa.fa-bars.fa-lg
+            div.header-block.header-user-name
+                span {{my.user.name}} {{my.user.sname}}
+            div.header-block.header-balance
+                //span Balance: {{my.balance}} грн
+                span Balance: {{my.balance.balance}} грн
+
+            div.header-block.header-expenses
+                span Expenses: {{my.totalExpenses}} грн
+            div.logout-block
+                i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
+
+
+        div.addExpemses(ng-show='my.wastemodal')
+            div.form
+                form.add-form
+                    i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click="my.wastemodal=false")
+                    label  FROM {{my.source.title}} ⇨
+                    label  FOR {{my.target}}
+                    input(type='number' required, placeholder='enter the sum' ng-model='my.newWaste.count')
+                    textarea(name='description', placeholder='description' ng-model='my.newWaste.description')
+                    button(ng-click='my.addExpense()') Submit
+                    button(ng-click='my.wastemodal=false; my.newWaste={} ') Cancel
+
+
+        div.addmodal(ng-show='my.addsaveModal')
+            div.form
+                form.add-form
+                    i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click='my.addsaveModal=false')
+                    input(type='text', placeholder='name your saves' ng-model='my.newSave.title' )
+                    input(type='number', placeholder='value your saves' ng-model='my.newSave.count')
+                    button(ng-click="my.addSaves(newSave)") create
+
+
+        div.addIncomes(ng-show='my.incomeModal')
+            div.form
+                form.add-form
+                    i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click='my.incomeModal=false')
+                    input(type='number', placeholder='input the sum' ng-model='my.newIncome.count')
+                    select(ng-model='my.newIncome.id_save;' required)
+                        option(value='' disabled selected ) Choose Save
+                        option(ng-repeat='save in my.userSaves ' value='{{save.id}}') {{save.title}}
+
+                    textarea(name='comments', placeholder='comments' ng-model='my.newIncome.description')
+                    button(ng-click='my.addIncome(); my.incomeModal=false') ADD
+
+
+
+        //income block
+        div.main-block.incomes-block
+
+            div.main-block-elements
+                span.elements-title Incomes
+                input(type="button" ng-click='my.incomeButton()').btn-incomes
+            span {{my.balance}} br
+            br
+            span
+        div.main-block.saves-block
+
+            div.main-block-elements(ng-repeat='save in my.userSaves track by $index ' )
+                span.elements-title {{save.title}}
+                input(type="button" ng-click='my.chooseSource(save)' id='source{{save.id}}').btn-card
+                span.elements-value {{save.count}} uah
+
+
+
+            div.main-block-elements(ng-click='my.addSaveModal()' )
+                span.elements-title
+                input(type="button" ).btn-add
+                span.elements-value
+
+
+
+
+        div.main-block.extenses-block
+
+            div.main-block-elements(ng-click='my.chooseTarget("Food"); my.wasteModal()')
+                span.elements-title Food
+                input(type="button").btn-food
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Transport"); my.wasteModal()')
+                span.elements-title Transport
+                input(type="button").btn-transport
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Clothes"); my.wasteModal()')
+                span.elements-title Clothes
+                input(type="button").btn-clothes
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("House"); my.wasteModal()')
+                span.elements-title House
+                input(type="button").btn-house
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Health"); my.wasteModal()')
+                span.elements-title Health
+                input(type="button").btn-health
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Gifts"); my.wasteModal()')
+                span.elements-title Gifts
+                input(type="button").btn-gifts
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Fun"); my.wasteModal()')
+                span.elements-title Fun
+                input(type="button").btn-fun
+                span.elements-value 0 uah
+            div.main-block-elements(ng-click='my.chooseTarget("Other"); my.wasteModal()')
+                span.elements-title Other
+                input(type="button").btn-fun
+                span.elements-value 0 uah
+

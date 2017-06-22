@@ -1,0 +1,17 @@
+#stat_charts{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  //#piechartSave,#piechartWaste{
+  //  position: relative;
+  //  z-index:1;
+  //
+  //}
+}
+.chart{
+  width:600px;
+  position: relative;
+  z-index:1;
+}

@@ -1,26 +1,30 @@
-
-
 //media screens
 @mixin mobile{
-  @media(max-width:#{720px - 1px}){
+  @media(min-width: #{480px}) and (max-width:#{768px}){
     @content
   };
 
 }
 @mixin tablet{
-  @media (min-width: #{700px - 1px})  and (max-width: 999px) {
+  @media (min-width: #{768px + 1px})  and (max-width: 1024px) {
     @content
   }
 }
 
-@mixin pc_s{
-  @media (min-width: #{1000px + 1px}) and (max-width: 1280px) {
+@mixin desktop{
+  @media (min-width: #{1024px + 1px}) and (max-width: 1280px) {
     @content
   }
 }
 
-@mixin pc_l{
-  @media (min-width: #{1280px + 1px})and (max-width: 1400px) {
+@mixin desktop-xl{
+  @media (min-width: #{1280px + 1px})and (max-width: 1440px) {
+    @content
+  }
+}
+
+@mixin desktop-xxl{
+  @media (min-width: #{1440px + 1px}){
     @content
   }
 }

@@ -1,4 +1,4 @@
-.login-page {
+.login-page, .register-page, .addmodal, .addIncomes, .addExpemses {
   width: 100%;
   position: absolute;
   top: 0;
@@ -7,17 +7,37 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.65);
+  transition: all ease .8s;
 }
 
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
-  max-width: 30%;
+  background: #FFF;
+  width: 70%;
   margin: auto;
-  padding: 25px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  @include mobile {
+    width: 60%;
+  }
+  @include tablet {
+    width: 50%;
+  }
+  @include desktop {
+    width: 40%;
+  }
+  @include desktop-xl {
+    width: 30%;
+    padding: 20px;
+  }
+  @include desktop-xxl {
+    padding: 25px;
+    width: 25%;
+  }
 }
 
 .form input {
@@ -26,12 +46,32 @@
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 25px;
-  padding: 25px;
+  margin: 0 0 15px;
+  padding: 15px;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 13px;
   &:focus {
-    outline: 2px solid #159957;
+    outline: 2px solid #038b98;
+  }
+  @include mobile {
+    margin: 0 0 17px;
+    padding: 17px;
+  }
+  @include tablet {
+    margin: 0 0 19px;
+    padding: 19px;
+  }
+  @include desktop {
+    margin: 0 0 21px;
+    padding: 21px;
+  }
+  @include desktop-xl {
+    margin: 0 0 23px;
+    padding: 23px;
+  }
+  @include desktop-xxl {
+    margin: 0 0 25px;
+    padding: 25px;
   }
 }
 
@@ -39,40 +79,134 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #159957; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #155799, #159957); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #035966;
   width: 100%;
   border: 0;
-  padding: 25px;
+  padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  transition: all ease .8s;
   cursor: pointer;
+  margin: 0 0 15px;
+  @include mobile {
+    padding: 17px;
+  }
+  @include tablet {
+    padding: 19px;
+  }
+  @include desktop {
+    padding: 21px;
+  }
+  @include desktop-xl {
+    padding: 23px;
+  }
+  @include desktop-xxl {
+    padding: 25px;
+  }
+}
+
+.form input[type=radio] {
+  width: 20%;
+  display: inline-block;
+}
+
+.form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: none;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 13px;
+  &:focus {
+    outline: 2px solid #038b98;
+  }
+}
+
+.form textarea {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 13px;
+  resize: none;
+  height: 200px;
+  &:focus {
+    outline: 2px solid #038b98;
+  }
+  @include mobile {
+    margin: 0 0 17px;
+    padding: 17px;
+  }
+  @include tablet {
+    margin: 0 0 19px;
+    padding: 19px;
+  }
+  @include desktop {
+    margin: 0 0 21px;
+    padding: 21px;
+  }
+  @include desktop-xl {
+    margin: 0 0 23px;
+    padding: 23px;
+  }
+  @include desktop-xxl {
+    margin: 0 0 25px;
+    padding: 25px;
+  }
 }
 
 .form button:hover, .form button:active, .form button:focus {
-  background: #159957; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #159957, #155799); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #159957, #155799); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  background: #03808f;
+  transition: all ease .8s;
+}
+
+.form .alert {
+  display: block;
+  color: #fd1d20;
+  line-height: 10px;
+  margin-bottom: 20px;
 }
 
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
+  color: #929292;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .form .message a {
-  color: #4CAF50;
+  color: #038b98;
   text-decoration: none;
+  &:before {
+    transition: all ease .4s;
+  }
+  &:hover {
+    color: #fd1d20;
+    transition: all ease .1s;
+  }
 }
 
-.form .register-form {
-  //display: none;
+.fa-times-circle {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: #03808f;
+  &:before {
+    transition: all ease .4s;
+  }
+  &:hover {
+    color: #984551;
+    transition: all ease .1s;
+  }
 }

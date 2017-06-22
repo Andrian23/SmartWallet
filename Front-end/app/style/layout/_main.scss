@@ -1,0 +1,168 @@
+#main-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.main-block {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-content: flex-start;
+  border-top: 1px solid #bfbfbf;
+}
+.main-block-elements {
+  width: 18vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  //background: silver;
+  margin: 10px 3vw 10px 3vw;
+  text-align: center;
+  input[type=button] {
+    width: 17vw;
+    height: 17vw;
+    margin: 5px 0;
+    border-radius: 50%;
+    cursor: pointer;
+    //background-color: silver;
+    @include mobile {
+      width: 16vw;
+      height: 16vw;
+    }
+    @include tablet {
+      width: 11vw;
+      height: 11vw;
+    }
+    @include desktop {
+      width: 9vw;
+      height: 9vw;
+    }
+    @include desktop-xl {
+      width: 6vw;
+      height: 6vw;
+    }
+    @include desktop-xxl {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+  @include mobile {
+    width: 16vw;
+    margin: 10px 4vw 10px 4vw;
+  }
+  @include tablet {
+    width: 14vw;
+    margin: 10px 2.5vw 10px 3vw;
+  }
+  @include desktop {
+    width: 12vw;
+    margin: 10px 2.2vw 10px 2.2vw;
+  }
+  @include desktop-xl {
+    width: 10vw;
+    margin: 10px 2vw 10px 2vw;
+  }
+  @include desktop-xxl {
+    width: 8vw;
+    margin: 10px 1.5vw 10px 1vw;
+  }
+}
+.elements-title, .elements-value {
+  font-family: $header-font;
+  font-weight: bold;
+}
+
+.btn-add {
+  border: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("../img/icons/plus.svg");
+  background-size: cover;
+  background-color: white;
+}
+.btn-incomes {
+  border: 2px solid #21599E;
+  background-image: url("../img/icons/coin.svg");
+  background-color: white;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-cash {
+  border: none;
+  background: url("../img/icons/wallet.svg");
+  background-color: #af3233;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-card {
+  border: none;
+  background: url("../img/icons/card.svg");
+  background-color: #4276af;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-food {
+  border: none;
+  background: url("../img/icons/food.svg");
+  background-color: #af460c;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-transport {
+  border: none;
+  background: url("../img/icons/transport.svg");
+  background-color: #135a74;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-clothes {
+  border: none;
+  background: url("../img/icons/shirt.svg");
+  background-color: #ad74a6;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-house {
+  border: none;
+  background: url("../img/icons/home.svg");
+  background-color: #aaad6f;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-health {
+  border: none;
+  background: url("../img/icons/health.svg");
+  background-color: #229b5c;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-gifts {
+  border: none;
+  background: url("../img/icons/gift.svg");
+  background-color: #3b3176;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.btn-fun {
+  border: none;
+  background: url("../img/icons/fun.svg");
+  background-color: #874953;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

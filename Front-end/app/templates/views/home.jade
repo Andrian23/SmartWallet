@@ -1,9 +1,10 @@
+include ../components/modal
 div.container
     div#home-page
         div.home-title Smart wallet
         div.home-buttons
-            button.btn.btn-l#login Login
-            button.btn.btn-r#register Register
+            button.btn.btn-l#login(ng-click='reg.loginButton()') Login
+            button.btn.btn-r#register(ng-click='reg.registerButton()') Register
 
 
 

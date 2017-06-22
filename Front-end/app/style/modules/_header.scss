@@ -1,89 +1,70 @@
 #header-container {
   width: 100%;
   height: 40px;
-  background: #159957; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #155799, #159957); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #035966; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to left, #155799, #159957); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient(to left, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   box-sizing: border-box;
+  padding: 0 50px;
   border-bottom: 1px solid $border-color;
   .header-block {
     padding: 0 5px;
-    font-family: $main-font;
+    font-family: $header-font;
     font-size: 13px;
     color: white;
-    @media (min-width: $mobile) {
+    max-width: 65px;
+    @include mobile {
       font-size: 14px;
+      max-width: 100%;
     }
-    @media (min-width: $tablet) {
+    @include tablet {
       font-size: 15px;
+      max-width: 100%;
     }
-    @media (min-width: $desktop) {
+    @include desktop {
       font-size: 16px;
+      max-width: 100%;
     }
-    @media (min-width: $desktop-xl) {
+    @include desktop-xl {
       font-size: 17px;
+      max-width: 100%;
+    }
+    @include desktop-xxl {
+      font-size: 18px;
+      max-width: 100%;
     }
   }
 }
 .btn-menu {
-  width: 20px;
-  margin-left: 10px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: white;
   cursor: pointer;
+  .fa-bars:before {
+    transition: all ease .4s;
+  }
   .fa-bars:hover {
-    color: #155799;
-    transition: all 0.3s;
+    color: #8ca4a4;
+    transition: all ease .1s;
   }
 }
-
-#menu-container {
-  width: 60%;
-  height: 100%;
+.logout-block {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  border-right: 2px solid gray;
-  @media (min-width: $mobile) {
-    width: 50%;
+  top: 10px;
+  right: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  .fa-power-off:before {
+    transition: all ease .4s;
   }
-  @media (min-width: $tablet) {
-    width: 40%;
-  }
-  @media (min-width: $desktop) {
-    width: 30%;
-  }
-  @media (min-width: $desktop-xl) {
-    width: 20%;
-  }
-  .menu-user-photo {
-    width: 100%;
-    height: 200px;
-    background: #159957; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #155799, #159957); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    .user-photo-box {
-      width: 18vmin;
-      height: 18vmin;
-      background: silver;
-      border-radius: 50%;
-    }
-  }
-  .menu-list {
-    font-family: $main-font;
-    font-size: 3vmin;
-    text-align: center;
-    ul li {
-      padding: 20px 0;
-      margin: 10px 0;
-      line-height: 3vmin;
-      border-bottom: 2px solid gray;
-    }
+  .fa-power-off:hover {
+    color: #8ca4a4;
+    transition: all ease .1s;
   }
 }
