@@ -1,20 +1,15 @@
-div.login-page(ng-show='reg.loginForm' ng-blure='reg.loginForm=false')
+div.login-page
     div.form
         form.login-form
-            input(type='text', placeholder='username' ng-model='reg.userLogIn.login')
-            input(type='password', placeholder='password' ng-model='reg.userLogIn.password')
-            span.alert( ng-show='reg.alert') {{reg.message}}
-            button(ng-click='reg.login()') login
+            input(type='text', placeholder='username')
+            input(type='password', placeholder='password')
+            button login
             p.message
                 | Not registered?
                 a(href='#/' ng-click='reg.registerButton()') Create an account
 
 
-
-
-
-
-div.register-page(ng-show='reg.registerForm')
+div.register-page
     div.form
         form.register-form
             i.fa.fa-times-circle.fa-lg(aria-hidden='true' title='Close modal' ng-click='reg.closeForm()')

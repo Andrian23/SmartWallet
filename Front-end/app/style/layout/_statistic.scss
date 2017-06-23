@@ -1,17 +1,11 @@
-#stat_charts{
-  width:100%;
+#stat_charts {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  //#piechartSave,#piechartWaste{
-  //  position: relative;
-  //  z-index:1;
-  //
-  //}
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
-.chart{
-  width:600px;
-  position: relative;
-  z-index:1;
+.some {
+  width: 25%!important;
+  min-height: 400px!important;
 }

@@ -166,3 +166,59 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+.btn-other {
+  border: none;
+  background: url("../img/icons/clock.svg");
+  background-color: #c0bbb7;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//.radio_buttons {
+//  margin: 20px;
+//  font: 14px Tahoma;
+//}
+//.radio_buttons div {
+//  float: left;
+//}
+//.radio_buttons input {
+//  position: absolute;
+//  left: -9999px;
+//}
+//.radio_buttons label {
+//  display: block;
+//  margin: 0 5px;
+//  padding: 30px;
+//  border-radius: 50%;
+//  border: 1px solid #BBBBBB;
+//  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+//  box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+//  cursor: pointer;
+//}
+//.radio_buttons input:checked + label {
+//  //background: white;
+//  background: #666fc0;
+//  box-shadow: inset 0 3px 6px rgba(0, 0, 0, .2);
+//}
+//.radio_buttons div:first-child label {
+//  margin-left: 0;
+//  //border-top-left-radius: 4px;
+//  //border-bottom-left-radius: 4px;
+//}
+//.radio_buttons div:last-child label {
+//  //border-top-right-radius: 4px;
+//  //border-bottom-right-radius: 4px;
+//}
+//.some1 {
+//  background: green;
+//  width: 130px;
+//  height: 130px;
+//  transition: .5s;
+//}
+//#chetyre2:checked ~ .some1 {
+//  background: yellow;
+//}
+//#chetyre3:checked ~ .some1 {
+//  background: red;
+//}
