@@ -4,6 +4,7 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
     vm.totalBalance = []
     vm.totalIncomes=0;
     vm.totalExpenses=0;
+    vm.dateFilter=''
     vm.getDatas = function () {
         vm.incomes = userService.getIncomes();
         vm.wastes = userService.getWasted();
@@ -21,8 +22,7 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
             vm.totalBalance.push(vm.wastes[i])
         }
         userService.addTotal(vm.totalBalance)
-        console.log(vm.totalIncomes);
-        console.log(vm.totalExpenses);
+       
     };
 
     vm.chartSaves = function () {
@@ -112,6 +112,7 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
     };
     vm.init = function () {
         vm.getDatas()
+        vm.dateFilter=userService.setDefFilter()
         vm.connect()
         vm.chartSaves()
         vm.chartWastes()

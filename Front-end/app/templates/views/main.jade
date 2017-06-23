@@ -1,19 +1,19 @@
 section.container
 
     div#main-container
-        div#header-container
-            div.btn-menu(onclick="openNav()")
-                i.fa.fa-bars.fa-lg
-            div.header-block.header-user-name
-                span {{my.user.name}} {{my.user.sname}}
-            div.header-block.header-balance
-                //span Balance: {{my.balance}} грн
-                span Balance: {{my.balance.balance}} грн
-
-            div.header-block.header-expenses
-                span Expenses: {{my.totalExpenses}} грн
-            div.logout-block
-                i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
+        //div#header-container
+        //    div.btn-menu(onclick="openNav()")
+        //        i.fa.fa-bars.fa-lg
+        //    div.header-block.header-user-name
+        //        span {{my.user.name}} {{my.user.sname}}
+        //    div.header-block.header-balance
+        //        //span Balance: {{my.balance}} грн
+        //        //span Balance: {{my.balance.balance}} грн
+        //
+        //    div.header-block.header-expenses
+        //        span Expenses: {{my.totalExpenses}} грн
+        //    div.logout-block
+        //        i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
 
 
         div.addExpemses(ng-show='my.wastemodal')

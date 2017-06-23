@@ -6,6 +6,7 @@ app.factory("userService", function ($http) {
         balance: {
             balance: 0
         },
+        monthExpenses:{expense:0},
         users: [
             {
                 id: 1,
@@ -61,6 +62,15 @@ app.factory("userService", function ($http) {
                 date: '2017-06-20',
                 title: "Health"
 
+            },{
+                id: 3,
+                id_user: 1,
+                id_save: 2,
+                description: '',
+                count: 3000,
+                date: '2017-01-20',
+                title: "Health"
+
             }, {
                 id: 1,
                 id_user: 1,
@@ -73,29 +83,46 @@ app.factory("userService", function ($http) {
         ],
         incomes: [],
         totalBalance: [],
+        dateFilter:'',
+
+        getBalance:function () {
+            return this.balance;
+        },
+
+        updateBalance:function (x) {
+            this.balance=x
+        },
+        updateMonthExpenses:function (x) {
+            this.expense=x
+        },
+        setDefFilter:function (x) {
+            this.dateFilter=x
+        },
+
+
+
+        updateSaves:function () {
+
+        },
+
         addUser: function (user) {
             this.users.push(user)
         },
-
         getUsers: function () {
             return this.users
         },
-
         getIncomes: function () {
             return this.incomes
         },
-
         addIncome: function (income) {
             this.incomes.push(income)
         },
-
         getWasted: function () {
             return this.wasted
         },
         addExpense: function (wasted) {
             this.wasted.push(wasted)
         },
-
         getSaves: function () {
             return this.saves
         },
@@ -108,13 +135,6 @@ app.factory("userService", function ($http) {
         getTotal:function(){
             return this.totalBalance
         },
-
-        addBalance:function(balance){
-            this.balance=balance
-        },
-        getBalance:function () {
-            return this.balance;
-        }
 
 
 

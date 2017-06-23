@@ -19,7 +19,7 @@ gulp.task('browser-sync', ['styles', 'scripts', 'jade'], function() {
     });
 });
 gulp.task('image', function () {
-    gulp.src('./app/img/*')
+    gulp.src('./app/img/**/*.*')
         .pipe(image())
         .pipe(gulp.dest('build/img'));
 });
