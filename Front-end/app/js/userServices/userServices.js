@@ -3,10 +3,8 @@
  */
 app.factory("userService", function ($http) {
     return {
-        balance: {
-            balance: 0
-        },
-        monthExpenses:{expense:0},
+        balance: {sum: 0},
+        monthExpenses:{sum:0},
         users: [
             {
                 id: 1,
@@ -78,7 +76,31 @@ app.factory("userService", function ($http) {
                 description: '',
                 count: 2000,
                 date: '2017-06-20',
-                title: "Car"
+                title: "Transport"
+            }, {
+                id: 4,
+                id_user: 1,
+                id_save: 2,
+                description: '',
+                count: 2000,
+                date: '2017-07-20',
+                title: "Transport"
+            }, {
+                id: 5,
+                id_user: 1,
+                id_save: 2,
+                description: '',
+                count: 2000,
+                date: '2017-07-20',
+                title: "Gifts"
+            },{
+                id: 8,
+                id_user: 1,
+                id_save: 2,
+                description: '',
+                count: 2000,
+                date: '2017-07-20',
+                title: "Gifts"
             }
         ],
         incomes: [],
@@ -93,8 +115,14 @@ app.factory("userService", function ($http) {
             this.balance=x
         },
         updateMonthExpenses:function (x) {
-            this.expense=x
+            this.monthExpenses.sum=x
+            console.log(x)
         },
+getMonthExpenses:function () {
+    return this.monthExpenses
+},
+
+
         setDefFilter:function (x) {
             this.dateFilter=x
         },

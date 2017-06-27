@@ -2,9 +2,16 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
     var vm = this;
     vm.user = JSON.parse(localStorage.getItem("vm.user"))
     vm.totalBalance = []
-    vm.totalIncomes=0;
-    vm.totalExpenses=0;
-    vm.dateFilter=''
+    vm.totalIncomes = 0;
+    vm.totalExpenses = 0;
+    vm.targets=["Food","Transport","Clothes","House","Health","Gifts","Fun","Other"]
+    vm.getDate = function () {
+        var d = new Date();
+        vm.date = d.toISOString().slice(0, 10);
+        vm.year = vm.date.slice(0, 4);
+        vm.dataFilter = vm.date.slice(4, 8)
+
+    };
     vm.getDatas = function () {
         vm.incomes = userService.getIncomes();
         vm.wastes = userService.getWasted();
@@ -12,17 +19,17 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
     };
     vm.connect = function () {
         for (i in vm.incomes) {
-            vm.totalIncomes+=vm.incomes[i].count
-            vm.incomes[i].type='Incomes'
+            vm.totalIncomes += vm.incomes[i].count
+            vm.incomes[i].type = 'Incomes'
             vm.totalBalance.push(vm.incomes[i])
         }
         for (i in vm.wastes) {
-            vm.totalExpenses+=vm.wastes[i].count
-            vm.wastes[i].type='Expenses'
+            vm.totalExpenses += vm.wastes[i].count
+            vm.wastes[i].type = 'Expenses'
             vm.totalBalance.push(vm.wastes[i])
         }
         userService.addTotal(vm.totalBalance)
-       
+
     };
 
     vm.chartSaves = function () {
@@ -51,16 +58,36 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
             chart.draw(data, options);
         }
     };
+    vm.createArr=function(){
+        vm.results=[]
+        for(x in vm.targets){
+            vm.ex={};
+            vm.ex.title=vm.targets[x];
+            vm.ex.count=0
+            vm.results.push(vm.ex)
+        }
+        for (i in vm.wastes){
+            for(j in vm.results)
+            if(vm.wastes[i].title==vm.results[j].title){
+                vm.results[j].count+=vm.wastes[i].count
+            }
+        }
+    }
 
     vm.chartWastes = function () {
+        vm.createArr()
         vm.arrW = [['name', 'money Wasted']];
-        for (i in vm.wastes) {
+        for (i in vm.results) {
             vm.subarr = [];
-            vm.subarr.push(vm.wastes[i].title);
-            vm.subarr.push(vm.wastes[i].count);
+            vm.subarr.push(vm.results[i].title);
+            vm.subarr.push(vm.results[i].count);
+
+
             vm.arrW.push(vm.subarr)
 
+
         }
+
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
@@ -81,22 +108,24 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
 
 
     vm.chartBalaance = function () {
-        google.charts.load("current", {packages:['corechart']});
+        google.charts.load("current", {packages: ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ["Type", "Density", { role: "style" } ],
+                ["Type", "Density", {role: "style"}],
                 ["Incomes", vm.totalIncomes, "green"],
                 ["Expenses", vm.totalExpenses, "red"],
-                ["Savings", vm.totalIncomes-vm.totalExpenses, "color: #e5e4e2"]
+                ["Savings", vm.totalIncomes - vm.totalExpenses, "color: #e5e4e2"]
             ]);
 
             var view = new google.visualization.DataView(data);
             view.setColumns([0, 1,
-                { calc: "stringify",
+                {
+                    calc: "stringify",
                     sourceColumn: 1,
                     type: "string",
-                    role: "annotation" },
+                    role: "annotation"
+                },
                 2]);
 
             var options = {
@@ -104,19 +133,21 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
                 width: 600,
                 height: 400,
                 bar: {groupWidth: "95%"},
-                legend: { position: "none" },
+                legend: {position: "none"},
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
         }
     };
     vm.init = function () {
+        vm.getDate()
         vm.getDatas()
-        vm.dateFilter=userService.setDefFilter()
         vm.connect()
+        vm.createArr(0)
         vm.chartSaves()
         vm.chartWastes()
         vm.chartBalaance()
+
     };
     vm.init()
 }]);

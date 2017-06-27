@@ -12,29 +12,29 @@
 
 section#history-container
     div.months
-        input#months-1.months-selector-1(type='radio', name='radio-set', checked='checked'  ng-click='my.dateFilter="-01-"')
+        input#months-1.months-selector-1(type='radio', name='radio-set', checked='checked'  ng-click='his.dateFilter="-01-"')
         label.months-label-1(for='months-1') Jan
-        input#months-2.months-selector-2(type='radio', name='radio-set'  ng-click='my.dateFilter="-02-"')
+        input#months-2.months-selector-2(type='radio', name='radio-set'  ng-click='his.dateFilter="-02-"')
         label.months-label-2(for='months-2') Feb
-        input#months-3.months-selector-3(type='radio', name='radio-set'  ng-click='my.dateFilter="-03-"')
+        input#months-3.months-selector-3(type='radio', name='radio-set'  ng-click='his.dateFilter="-03-"')
         label.months-label-3(for='months-3') Mar
-        input#months-4.months-selector-4(type='radio', name='radio-set'  ng-click='my.dateFilter="-04-"')
+        input#months-4.months-selector-4(type='radio', name='radio-set'  ng-click='his.dateFilter="-04-"')
         label.months-label-4(for='months-4') Apr
-        input#months-5.months-selector-5(type='radio', name='radio-set'  ng-click='my.dateFilter="-05-"')
+        input#months-5.months-selector-5(type='radio', name='radio-set'  ng-click='his.dateFilter="-05-"')
         label.months-label-5(for='months-5') May
-        input#months-6.months-selector-6(type='radio', name='radio-set'  ng-click='my.dateFilter="-06-"')
+        input#months-6.months-selector-6(type='radio', name='radio-set'  ng-click='his.dateFilter="-06-"')
         label.months-label-6(for='months-6') June
-        input#months-7.months-selector-7(type='radio', name='radio-set'  ng-click='my.dateFilter="-07-"')
+        input#months-7.months-selector-7(type='radio', name='radio-set'  ng-click='his.dateFilter="-07-"')
         label.months-label-7(for='months-7') July
-        input#months-8.months-selector-8(type='radio', name='radio-set'  ng-click='my.dateFilter="-08-"')
+        input#months-8.months-selector-8(type='radio', name='radio-set'  ng-click='his.dateFilter="-08-"')
         label.months-label-8(for='months-8') Aug
-        input#months-9.months-selector-9(type='radio', name='radio-set'  ng-click='my.dateFilter="-09-"')
+        input#months-9.months-selector-9(type='radio', name='radio-set'  ng-click='his.dateFilter="-09-"')
         label.months-label-9(for='months-9') Sept
-        input#months-10.months-selector-10(type='radio', name='radio-set'  ng-click='my.dateFilter="-10-"')
+        input#months-10.months-selector-10(type='radio', name='radio-set'  ng-click='his.dateFilter="-10-"')
         label.months-label-10(for='months-10') Oct
-        input#months-11.months-selector-11(type='radio', name='radio-set'  ng-click='my.dateFilter="-11-"')
+        input#months-11.months-selector-11(type='radio', name='radio-set'  ng-click='his.dateFilter="-11-"')
         label.months-label-11(for='months-11') Nov
-        input#months-12.months-selector-12(type='radio', name='radio-set'  ng-click='my.dateFilter="-12-"')
+        input#months-12.months-selector-12(type='radio', name='radio-set'  ng-click='his.dateFilter="-12-"')
         label.months-label-12(for='months-12') Dec
 
     table.history-table
@@ -44,7 +44,7 @@ section#history-container
             th(ng-click='order="title"') TITLE
             th(ng-click="order='type'") TYPE
             th COMMENTS
-        tr(ng-repeat="x in his.totalBalance| orderBy: order | filter:my.dateFilter")
+        tr(ng-repeat="x in his.totalBalance| orderBy: order | filter: his.dateFilter")
             td {{x.date}}
             td {{x.count}} UAH
             td {{x.title}}

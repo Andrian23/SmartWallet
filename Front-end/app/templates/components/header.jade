@@ -1,4 +1,4 @@
-section.container(ng-app="myapp" ng-controller='mainCtrl as my')
+section.container
 
         div#header-container
             div.btn-menu(onclick="openNav()")
@@ -6,11 +6,11 @@ section.container(ng-app="myapp" ng-controller='mainCtrl as my')
             div.header-block.header-user-name
                 span {{my.user.name}} {{my.user.sname}}
             div.header-block.header-balance
-                span Balance: {{my.balance.balance}} грн
+                span(ng-repeat='b in my.balance') Balance: {{my.balance.sum}} грн
 
 
             div.header-block.header-expenses
-                span Expenses: {{my.monthExpenses.expense}} грн
+                span Expenses: {{my.monthExpenses.sum}} грн
             div.logout-block
                 i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
 
