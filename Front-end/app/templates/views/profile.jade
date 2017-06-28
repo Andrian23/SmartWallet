@@ -1,4 +1,82 @@
-//div
-// include ../components/main-menu
+div#header-container
+    div.btn-menu(onclick="openNav()", title='Open menu')
+        i.fa.fa-bars.fa-lg
+    div.header-block.header-user-name
+        span {{my.user.name}} {{my.user.sname}}
+    div.header-block.header-balance
+        span Balance: {{my.balance}} грн
+    div.header-block.header-expenses
+        span Expenses: {{my.balanceExpences}} грн
+    div.logout-block
+        i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
+
+section#profile-container
+
+    div.addmodal(ng-show='my.addsaveModal')
+        div.form
+            form.add-form
+                i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click='my.addsaveModal=false')
+                input(type='text', placeholder='name your saves' ng-model='my.newSave.title' )
+                input(type='number', placeholder='value your saves' ng-model='my.newSave.count')
+                button(ng-click="my.addSaves(newSave)") create
+
+    div.edit-page(ng-show='reg.editForm')
+        div.form
+            form.register-form
+                i.fa.fa-times-circle.fa-lg(aria-hidden='true' title='Close modal' ng-click='reg.closeForm()')
+                input(type='text' maxlength='15' ng-model='my.user.name' required)
+                input(type='text' maxlength='15' ng-model='my.user.sname' required)
+                input(type='text' maxlength='15' ng-model='my.user.login' required)
+                //span.alert(ng-show='reg.alert') {{reg.message}}
+                input(type='email' id="myEmail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model='my' +
+                '.user.email')
+                input(type='password' maxlength='15' ng-model='my.user.password' required)
+                button(href='#' ng-click='reg.saveChangeUser()') Save
+
+    div.warning-page(ng-show='reg.deleteForm')
+        div.form
+            form.register-form
+                i.fa.fa-times-circle.fa-lg(aria-hidden='true' title='Close modal' ng-click='reg.closeForm()')
+                h1 Do you want delete your account?
+                button(href='#' ng-click='reg.deleteUser()') Yes
+                button(href='#' ng-click='reg.closeForm()') No
 
 
+    div.profile-general
+        div.profile-photo
+            div.profile-photo-box
+            label.btn-choose
+                | Choose file
+                input(type='file')
+        div.profile-security
+            table(style='width:100%')
+                tr
+                    th Name:
+                    td {{my.user.name}}
+                tr
+                    th Full name:
+                    td {{my.user.sname}}
+                tr
+                    th Login:
+                    td {{my.user.login}}
+                tr
+                    th Email:
+                    td {{my.user.email}}
+                tr
+                    th Password:
+                    td {{my.user.password}}
+        div.profile-button
+            input.btn.btn-l(type="button", value='Edit', ng-click='reg.changeUser(users)')
+            input.btn.btn-l(type="button", value='Delete', ng-click='reg.deleteUser()')
+
+    div.profile-items
+
+        div.main-block-elements(ng-repeat='save in my.userSaves track by $index ' )
+            span.elements-title {{save.title}}
+            input(type="button" ng-click='my.chooseSource(save)' id='source{{save.id}}').btn-card
+            span.elements-value {{save.count}} uah
+
+        div.main-block-elements(ng-click='my.addSaveModal()' )
+            span.elements-title
+            input(type="button" ).btn-add
+            span.elements-value

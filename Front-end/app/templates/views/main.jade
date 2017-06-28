@@ -20,8 +20,10 @@ section.container
                     i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click="my.wastemodal=false")
                     label  FROM {{my.source.title}} ⇨
                     label  FOR {{my.target}}
-                    input(type='number' required, placeholder='enter the sum' ng-model='my.newWaste.count')
-                    textarea(name='description', placeholder='description' ng-model='my.newWaste.description')
+                    input(type='number' required, placeholder='enter the sum' maxlength='15' ng-model='my.newWaste' +
+                    '.count')
+                    textarea(name='description', placeholder='description' maxlength='30' ng-model='my.newWaste' +
+                    '.description')
                     button(ng-click='my.addExpense()') Submit
                     button(ng-click='my.wastemodal=false; my.newWaste={} ') Cancel
 
@@ -30,8 +32,8 @@ section.container
             div.form
                 form.add-form
                     i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click='my.addsaveModal=false')
-                    input(type='text', placeholder='name your saves' ng-model='my.newSave.name' )
-                    input(type='number', placeholder='value your saves' ng-model='my.newSave.count')
+                    input(type='text', placeholder='name your saves' maxlength='15' ng-model='my.newSave.title' )
+                    input(type='number', placeholder='value your saves' maxlength='15' ng-model='my.newSave.count')
                     button(ng-click="my.addSaves(newSave)") create
 
 
@@ -39,12 +41,11 @@ section.container
             div.form
                 form.add-form
                     i.fa.fa-times-circle.fa-lg(aria-hidden='true', title='Close modal' ng-click='my.incomeModal=false')
-                    input(type='number', placeholder='input the sum' ng-model='my.newIncome.count')
+                    input(type='number', placeholder='input the sum' maxlength='15' ng-model='my.newIncome.count')
                     select(ng-model='my.newIncome.id_save;' required)
                         option(value='' disabled selected ) Choose Save
                         option(ng-repeat='save in my.userSaves ' value='{{save.id}}') {{save.title}}
-
-                    textarea(name='comments', placeholder='comments' ng-model='my.newIncome.description')
+                    textarea(name='comments', placeholder='comments' maxlength='30' ng-model='my.newIncome.description')
                     button(ng-click='my.addIncome(); my.incomeModal=false') ADD
 
 
@@ -79,35 +80,35 @@ section.container
 
             div.main-block-elements(ng-click='my.chooseTarget("Food"); my.wasteModal()')
                 span.elements-title Food
-                input(type="button").btn-food
-                span.elements-value 0 uah
+                input(type="button").btn-expenses.btn-food
+                span.elements-title 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Transport"); my.wasteModal()')
                 span.elements-title Transport
-                input(type="button").btn-transport
+                input(type="button").btn-expenses.btn-transport
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Clothes"); my.wasteModal()')
                 span.elements-title Clothes
-                input(type="button").btn-clothes
+                input(type="button").btn-expenses.btn-clothes
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("House"); my.wasteModal()')
                 span.elements-title House
-                input(type="button").btn-house
+                input(type="button").btn-expenses.btn-house
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Health"); my.wasteModal()')
                 span.elements-title Health
-                input(type="button").btn-health
+                input(type="button").btn-expenses.btn-health
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Gifts"); my.wasteModal()')
                 span.elements-title Gifts
-                input(type="button").btn-gifts
+                input(type="button").btn-expenses.btn-gifts
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Fun"); my.wasteModal()')
                 span.elements-title Fun
-                input(type="button").btn-fun
+                input(type="button").btn-expenses.btn-fun
                 span.elements-value 0 uah
             div.main-block-elements(ng-click='my.chooseTarget("Other"); my.wasteModal()')
                 span.elements-title Other
-                input(type="button").btn-other
+                input(type="button").btn-expenses.btn-other
                 span.elements-value 0 uah
 
 
@@ -132,22 +133,4 @@ section.container
             //    input#chetyre2(type='radio', name='chetyre')
             //    input#chetyre3(type='radio', name='chetyre')
             //    div.some1
-
-//section.container
-//
-//    div#history-container
-//        div.months-block
-//            ul
-//                li January
-//                li February
-//                li March
-//                li April
-//                li May
-//                li June
-//                li July
-//                li August
-//                li September
-//                li October
-//                li November
-//                li December
 

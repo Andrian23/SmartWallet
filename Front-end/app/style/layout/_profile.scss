@@ -1,0 +1,143 @@
+#profile-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px 5px 0 5px;
+}
+
+.profile-general {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.profile-photo,
+.profile-security,
+.profile-button {
+  width: 45%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  @include tablet {
+    width: 33%;
+  }
+  @include desktop {
+    width: 33%;
+  }
+  @include desktop-xl {
+    width: 33%;
+  }
+  @include desktop-xxl {
+    width: 33%;
+  }
+}
+
+.profile-photo-box {
+  width: 30vw;
+  height: 30vw;
+  background: silver;
+  border-radius: 50%;
+  @include mobile {
+    width: 20vw;
+    height: 20vw;
+  }
+  @include tablet {
+    width: 15vw;
+    height: 15vw;
+  }
+  @include desktop {
+    width: 13vw;
+    height: 13vw;
+  }
+  @include desktop-xl {
+    width: 11vw;
+    height: 11vw;
+  }
+  @include desktop-xxl {
+    width: 9vw;
+    height: 9vw;
+  }
+}
+.profile-button {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  .btn {
+    width: 100px;
+    height: 25px;
+    border-radius: .5em;
+    border-color: #5ba4a4;
+    background: #5ba4a4;
+    font-size: 10px;
+    margin: 5px 0 0 0;
+    @include mobile {
+    }
+    &:hover {
+      background: #03808f;
+      border-color: #03808f;
+      color: white;
+    }
+  }
+}
+.btn-choose {
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+}
+.btn-choose [type=file] {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+/* Example stylistic flourishes */
+.btn-choose {
+  background: #5ba4a4;
+  border-radius: .5em;
+  font-size: 13px;
+  line-height: 23px;
+  float: left;
+  color: white;
+  &:hover {
+    background: #03808f;
+    border-color: #03808f;
+    color: white;
+  }
+}
+
+.btn-choose [type=file] {
+  cursor: pointer;
+}
+.profile-items {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  background: #fff;
+  margin: 10px;
+  box-sizing: border-box;
+}

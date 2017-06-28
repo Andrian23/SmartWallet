@@ -1,18 +1,5 @@
 section.container(ng-app="myapp" ng-controller='mainCtrl as my')
 
-    //div#header-container
-    //    div.btn-menu(onclick="openNav()", title='Open menu')
-    //        i.fa.fa-bars.fa-lg
-    //    div.header-block.header-user-name
-    //        span {{my.user.name}} {{my.user.sname}}
-    //    div.header-block.header-balance
-    //        span Balance: {{my.balance}} грн
-    //    div.header-block.header-expenses
-    //        span Expenses: {{my.balanceExpences}} грн
-    //    div.logout-block
-    //        i.fa.fa-power-off(aria-hidden='true', title='Logout', ng-click='my.logOut()')
-
-
     div#menu-container
         div.menu-user-photo
             div.user-photo-box {{my.user.photo}}
@@ -20,15 +7,15 @@ section.container(ng-app="myapp" ng-controller='mainCtrl as my')
         nav.menu-list
             ul
                 li.menu-list-item
-                    a(href='#main') Home
+                    a(href='#main' onclick='closeNav()') Home
                 li.menu-list-item
-                    a(href='#') My Account
+                    a(href='#/profile' onclick='closeNav()') My profile
                 li.menu-list-item
-                    a(href='#/history') History
+                    a(href='#/history' onclick='closeNav()') History
                 li.menu-list-item
-                    a(href='#/statistic') Statistic
+                    a(href='#/statistic' onclick='closeNav()') Statistic
                 li.menu-list-item
-                    a(href='#/' ng-click='my.logOut()') Logout
+                    a(href='#/' ng-click='my.logOut()' onclick='closeNav()') Logout
         a.fa.fa-times#menu-close(onclick='closeNav()', title='Close menu')
 
 
@@ -64,5 +51,8 @@ section.container(ng-app="myapp" ng-controller='mainCtrl as my')
 //            textarea(name='Повідомлення', placeholder='Повідомлення')
 //            button Cancel
 //            button Submit
+
+
+
 
 

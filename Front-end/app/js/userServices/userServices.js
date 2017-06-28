@@ -9,13 +9,15 @@ app.factory("userService", function ($http) {
                 name: 'xxx',
                 sname: 'yyy',
                 login: 'z',
+                email: 'xxzzqq@gmail.com',
                 password: 'q'
             },
             {
                 id: 2,
-                name: 'xx2',
-                sname: 'yy2',
+                name: 'Taras',
+                sname: 'Kundyk',
                 login: 'zz',
+                email: 'taraskundyk@gmail.com',
                 password: 'qq'
             }
 
@@ -105,9 +107,5 @@ app.factory("userService", function ($http) {
         getTotal:function(){
             return this.totalBalance
         }
-
-
-
-
     }
 });

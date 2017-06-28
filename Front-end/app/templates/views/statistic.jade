@@ -13,7 +13,8 @@ section.container
             div.logout-block
                 i.fa.fa-power-off(aria-hidden='true', title='Logout' ng-click='my.logOut()')
 
-        div#stat_charts
-            div#piechartSave.chart.some
-            div#columnchart_values.chart
-            div#piechartWaste.chart.some
+        div#stat_charts.diagramGroup
+            div#columnchart_values.chart.diagramValues
+            div.diagramBlock
+                div#piechartSave.chart.diagramSave
+                div#piechartWaste.chart.diagramWaste

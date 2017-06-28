@@ -10,7 +10,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
   align-content: flex-start;
   border-top: 1px solid #bfbfbf;
 }
@@ -21,7 +21,6 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  //background: silver;
   margin: 10px 3vw 10px 3vw;
   text-align: center;
   input[type=button] {
@@ -76,6 +75,25 @@
 .elements-title, .elements-value {
   font-family: $header-font;
   font-weight: bold;
+  font-size: 13px;
+  height: 25px;
+  @include mobile {
+    font-size: 14px;
+  }
+  @include tablet {
+    font-size: 15px;
+  }
+  @include desktop {
+    font-size: 16px;
+  }
+  @include desktop-xl {
+    font-size: 17px;
+    height: 20px;
+  }
+  @include desktop-xxl {
+    font-size: 18px;
+    height: 20px;
+  }
 }
 
 .btn-add {

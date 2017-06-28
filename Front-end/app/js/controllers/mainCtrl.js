@@ -6,32 +6,38 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
     vm.expenses = [];
     vm.incomes = [];
     vm.id;
-//modals show/hide
+
+    //modals show/hide
 
     vm.incomeButton = function () {
         vm.incomeModal = true;
         vm.newIncome = {}
     };
+
     vm.addSaveModal = function () {
-        vm.addsaveModal = true
+        vm.addsaveModal = true;
     };
+
     vm.chooseSource = function (source) {
         // document.getElementById(vm.id).style.border=" 2px solid #21599E";
-        vm.source = source
-        vm.changeButton()
+        vm.source = source;
+        vm.changeButton();
 
     };
+
     vm.changeButton=function(){
         if(vm.id!=null){
-            document.getElementById(vm.id).style.border=" 2px solid #21599E";
+            document.getElementById(vm.id).style.border="none";
         }
-        vm.id="source"+vm.source.id
-        document.getElementById(vm.id).style.border="3px solid red"
+        vm.id="source"+vm.source.id;
+        document.getElementById(vm.id).style.border="3px solid #615151";
     };
+
     // vm.returnButtons=function(){
     //     if(vm.id!=null)
     //     document.getElementById(vm.id).style.border=" 2px solid #21599E"
     // }
+
     vm.wasteModal = function () {
         if (vm.source != null) {
             vm.wastemodal = true;
@@ -42,7 +48,6 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         //     alert('sdsds')
         // }
     };
-
 
     vm.countExpenses = function () {
         vm.totalExpenses = 0;
@@ -81,7 +86,6 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
 
     };
 
-
     vm.addSaves = function () {
         vm.newSave.id_user = vm.user.id;
         // vm.userSaves.push(vm.newSave);
@@ -97,7 +101,7 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         vm.date = d.toISOString().slice(0, 10);
         vm.year = vm.date.slice(0, 4);
         vm.month = vm.date.slice(5, 7)
-        console.log(vm.date);
+        // console.log(vm.date);
     };
 
     vm.getBalance = function () {
@@ -106,7 +110,6 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
             vm.balance += vm.userSaves[x].count
         }
     };
-
 
     vm.addIncome = function () {
         vm.income = {};
@@ -125,9 +128,6 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
 
     };
 
-
-
-
     vm.chooseTarget = function (x) {
         vm.target = x;
         vm.wasted = {}
@@ -143,12 +143,9 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         vm.getDate();
         vm.userSaves = userService.getSaves();
         vm.ecpenses = userService.getWasted();
-        vm.getBalance()
-        vm.countExpenses()
+        vm.getBalance();
+        vm.countExpenses();
         // vm.Sort()
-
-
-
     };
     vm.init()
 }]);
