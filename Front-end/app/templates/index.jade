@@ -6,7 +6,7 @@ html(lang="eng")
         include components/links
     body(ng-app="myapp" ng-controller='mainCtrl as my')
         header
-
+            //include some modules into the header
 
             include components/header
         main
@@ -16,6 +16,9 @@ html(lang="eng")
 
         script( src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
         script( src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js")
+        script( src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js")
+        script( src='https://cdnjs.cloudflare.com/ajax/libs/angular-toastr/2.1.1/angular-toastr.js')
+        script( src='https://cdnjs.cloudflare.com/ajax/libs/angular-toastr/2.1.1/angular-toastr.tpls.min.js')
         script( src='../js/main.js')
 
 

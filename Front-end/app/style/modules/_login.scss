@@ -1,4 +1,4 @@
-.login-page, .register-page, .addmodal, .addIncomes, .addExpemses {
+.login-page, .register-page, .addmodal, .addIncomes, .addExpemses, .edit-page, .warning-page {
   width: 100%;
   position: absolute;
   top: 0;
@@ -10,8 +10,8 @@
   z-index: 9999;
   background: rgba(0, 0, 0, 0.65);
   transition: all ease .8s;
-}
 
+}
 .form {
   position: relative;
   z-index: 1;
@@ -208,5 +208,11 @@
   &:hover {
     color: #984551;
     transition: all ease .1s;
+  }
+}
+.warning-page {
+  .form button {
+    width: 40%;
+    margin: 10px;
   }
 }

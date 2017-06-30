@@ -17,6 +17,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
   line-height: 1;
+  background: #f0f0f0;
 }
 ol, ul {
   list-style: none;
@@ -56,21 +57,6 @@ table {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  //@media (max-width: $desktop-xxl) {
-  //  padding: 0 60px;
-  //}
-  //@media (max-width: $desktop-xl) {
-  //  padding: 0 50px;
-  //}
-  //@media (max-width: $desktop) {
-  //  padding: 0 40px;
-  //}
-  //@media (max-width: $tablet) {
-  //  padding: 0 30px;
-  //}
-  //@media (max-width: $mobile) {
-  //  justify-content: flex-start;
-  //}
 }
 
 a {
@@ -84,7 +70,4 @@ a {
     text-decoration: none;
     outline: 0;
   }
-}
-body {
-  background: #fdfdfd;
 }

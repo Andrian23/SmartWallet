@@ -5,8 +5,6 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
     vm.userSaves = [];
     vm.expenses = [];
     vm.incomes = [];
-    vm.balance={};
-    vm.sum=0
     vm.id;
 //modals show/hide
 
@@ -18,7 +16,7 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         vm.addsaveModal = true
     };
     vm.chooseSource = function (source) {
-
+        // document.getElementById(vm.id).style.border=" 2px solid #21599E";
         vm.source = source
         vm.changeButton()
 
@@ -27,17 +25,15 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         if(vm.id!=null){
             document.getElementById(vm.id).style.border=" 2px solid #21599E";
         }
-        vm.id="source"+vm.source.id;
+        vm.id="source"+vm.source.id
         document.getElementById(vm.id).style.border="3px solid red"
     };
-
     vm.wasteModal = function () {
         if (vm.source != null) {
             vm.wastemodal = true;
             document.getElementById(vm.id).style.border=" 2px solid #21599E";
             vm.newWaste = {}
         }
-
     };
 
 
@@ -94,9 +90,14 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         vm.date = d.toISOString().slice(0, 10);
         vm.year = vm.date.slice(0, 4);
         vm.month = vm.date.slice(5, 7)
-        console.log(vm.date);
     };
 
+    vm.getBalance = function () {
+        vm.balance = 0;
+        for (x in vm.userSaves) {
+            vm.balance += vm.userSaves[x].count
+        }
+    };
 
     vm.addIncome = function () {
         vm.income = {};
@@ -114,32 +115,25 @@ app.controller('mainCtrl', ['userService', 'httpService', function (userService,
         userService.addIncome(vm.income)
 
     };
+
     vm.chooseTarget = function (x) {
         vm.target = x;
         vm.wasted = {}
     };
+
     vm.logOut = function () {
         localStorage.clear();
         window.location = '#/'
     };
 
-
-    vm.getBalance = function () {
-
-        for (x in vm.userSaves) {
-            vm.sum += vm.userSaves[x].count
-        }
-        vm.balance.balance=vm.sum;
-
-        userService.addBalance(vm.balance)
-    };
     vm.init = function () {
         vm.getDate();
         vm.userSaves = userService.getSaves();
         vm.ecpenses = userService.getWasted();
-        // vm.getBalance();
-        vm.countExpenses();
-        vm.balance.balance=userService.getBalance();
+        vm.getBalance()
+        vm.countExpenses()
+        // vm.Sort()
+
 
 
     };

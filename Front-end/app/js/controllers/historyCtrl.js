@@ -15,16 +15,22 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
             vm.incomes[i].type='Incomes'
             vm.totalBalance.push(vm.incomes[i])
         }
-        for (i in vm.wastes) {
-            vm.totalExpenses+=vm.wastes[i].count
-            vm.wastes[i].type='Expenses'
-            vm.totalBalance.push(vm.wastes[i])
+        for (j in vm.wastes) {
+            vm.totalExpenses+=vm.wastes[j].count
+            vm.wastes[j].type='Expenses'
+            vm.totalBalance.push(vm.wastes[j])
         }
         userService.addTotal(vm.totalBalance)
         console.log(vm.totalIncomes);
         console.log(vm.totalExpenses);
     };
-
+    vm.getDate = function () {
+        var d = new Date();
+        vm.date = d.toISOString().slice(0, 10);
+        vm.year = vm.date.slice(0, 4);
+        vm.month = vm.date.slice(5, 7)
+        vm.dateFilter=vm.month
+    };
     vm.chartSaves = function () {
         vm.arr = [['name', 'money saved']];
         for (i in vm.userSaves) {
@@ -51,7 +57,6 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
             chart.draw(data, options);
         }
     };
-
     vm.chartWastes = function () {
         vm.arrW = [['name', 'money Wasted']];
         for (i in vm.wastes) {
@@ -78,8 +83,6 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
             chart.draw(data, options);
         }
     };
-
-
     vm.chartBalaance = function () {
         google.charts.load("current", {packages:['corechart']});
         google.charts.setOnLoadCallback(drawChart);
@@ -112,6 +115,7 @@ app.controller('historyCtrl', ['userService', 'httpService', function (userServi
     };
     vm.init = function () {
         vm.getDatas()
+        vm.getDate()
         vm.connect()
         vm.chartSaves()
         vm.chartWastes()

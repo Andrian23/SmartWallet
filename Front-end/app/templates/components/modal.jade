@@ -18,13 +18,13 @@ div.register-page(ng-show='reg.registerForm')
     div.form
         form.register-form
             i.fa.fa-times-circle.fa-lg(aria-hidden='true' title='Close modal' ng-click='reg.closeForm()')
-            input(type='text', placeholder='first name' ng-model='reg.newUser.name')
-            input(type='text', placeholder='second name' ng-model='reg.newUser.sname')
-            input(type='text', placeholder='login' ng-model='reg.newUser.login')
+            input(type='text', placeholder='first name' maxlength='15' ng-model='reg.newUser.name' required)
+            input(type='text', placeholder='second name' maxlength='15' ng-model='reg.newUser.sname' required)
+            input(type='text', placeholder='login' maxlength='15' ng-model='reg.newUser.login' required)
             span.alert(ng-show='reg.alert') {{reg.message}}
-            input(type='text', placeholder='email address' ng-model='reg.newUser.email')
-            input(type='password', placeholder='password' ng-model='reg.newUser.password')
-            button(href='#'  ng-click='reg.createAccount(reg.newUser)') create
+            input(type='email' placeholder='email' id="myEmail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required)
+            input(type='password', placeholder='password' maxlength='15' ng-model='reg.newUser.password' required)
+            button(href='#' ng-click='reg.createAccount(reg.newUser)') create
             p.message
                 | Already registered?
                 a(href='#/' ng-click="reg.loginButton()") Sign In

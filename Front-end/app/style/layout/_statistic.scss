@@ -1,17 +1,34 @@
-#stat_charts{
-  width:100%;
+#stat_charts {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  //#piechartSave,#piechartWaste{
-  //  position: relative;
-  //  z-index:1;
-  //
-  //}
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: #fff;
+  padding-top: 20px;
 }
-.chart{
-  width:600px;
-  position: relative;
-  z-index:1;
+.diagramGroup {
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: #fff;
+}
+#columnchart_values {
+  height: 55vh!important;
+  position: static!important;
+  margin: 0 auto;
+}
+.diagramBlock {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.diagramSave, .diagramWaste {
+  height: 35vh!important;
+  position: static!important;
 }

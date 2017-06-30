@@ -105,3 +105,6 @@
 .btn-r:active:after{
   width: 100%;
 }
+input[type='text'] {
+  max-lines: 1;
+}

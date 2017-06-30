@@ -1,0 +1,213 @@
+#history-container {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.year {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding-bottom: 20px;
+  .fa-arrow-left,
+  .fa-arrow-right {
+    color: #035966;
+    &:hover {
+    color: rgb(91, 164, 164);
+    }
+  }
+  h2 {
+    font-size: 10px;
+    padding: 0 10px;
+    color: #385c5b;
+    @include mobile {
+      font-size: 11px;
+    }
+    @include tablet {
+      font-size: 13px;
+    }
+    @include desktop {
+      font-size: 15px;
+    }
+    @include desktop-xl {
+      font-size: 16px;
+    }
+    @include desktop-xxl {
+      font-size: 17px;
+    }
+  }
+}
+
+.months {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.months input {
+  margin: 0;
+  flex: 0 0;
+  height: 40px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+.months label {
+  background: #5ba4a4;
+  background: -moz-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5ba4a4), color-stop(100%, #4e8c8a));
+  background: -webkit-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+  background: -o-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+  background: -ms-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+  background: linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+  font-size: 9px;
+  line-height: 40px;
+  height: 40px;
+  position: relative;
+  flex: 1 0;
+  float: left;
+  display: block;
+  width: 50px;
+  color: #385c5b;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1), -2px 0 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  @include mobile {
+    font-size: 11px;
+  }
+  @include tablet {
+    font-size: 13px;
+  }
+  @include desktop {
+    font-size: 15px;
+  }
+  @include desktop-xl {
+    font-size: 16px;
+  }
+  @include desktop-xxl {
+    font-size: 17px;
+  }
+}
+
+.months label:after {
+  content: '';
+  background: #fff;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  display: block;
+}
+
+.months input:hover + label {
+  background: #5ba4a4;
+}
+
+.months label:first-of-type {
+  z-index: 4;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.months input:checked + label {
+  background: #fff;
+  z-index: 6;
+}
+
+.content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+  height: 75vh;
+  z-index: 5;
+  background: #fff;
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0 3px 3px 3px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.months input.months-selector-1:checked ~ .content .content-1,
+.months input.months-selector-2:checked ~ .content .content-2,
+.months input.months-selector-3:checked ~ .content .content-3,
+.months input.months-selector-4:checked ~ .content .content-4 {
+  z-index: 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+  transition: opacity ease-out 0.2s 0.1s;
+}
+
+.content div p {
+  font-size: 14px;
+  line-height: 22px;
+  font-style: italic;
+  text-align: left;
+  margin: 0;
+  color: #777;
+  padding-left: 15px;
+  font-family: Cambria, Georgia, serif;
+  border-left: 8px solid rgba(63, 148, 148, 0.1);
+}
+
+.history-table {
+  margin: 20px auto;
+  width: 95%;
+  @include mobile {
+    width: 90%;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  max-width: 6vw;
+  height: auto;
+  padding: 5px 0;
+  text-align: justify;
+  border-bottom: 1px solid #ddd;
+  overflow-wrap: break-word;
+  font-size: 10px;
+  @include mobile {
+    font-size: 11px;
+  }
+  @include tablet {
+    font-size: 13px;
+  }
+  @include desktop {
+    font-size: 15px;
+  }
+  @include desktop-xl {
+    font-size: 16px;
+  }
+  @include desktop-xxl {
+    font-size: 17px;
+  }
+}
+
+th {
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #f5f5f5
+}

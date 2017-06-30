@@ -7,9 +7,7 @@ section.container
             div.header-block.header-user-name
                 span {{my.user.name}} {{my.user.sname}}
             div.header-block.header-balance
-                //span Balance: {{my.balance}} грн
-                span Balance: {{my.balance.balance}} грн
-
+                span Balance: {{my.balance}} грн
             div.header-block.header-expenses
                 span Expenses: {{my.totalExpenses}} грн
             div.logout-block
@@ -57,9 +55,7 @@ section.container
             div.main-block-elements
                 span.elements-title Incomes
                 input(type="button" ng-click='my.incomeButton()').btn-incomes
-            span {{my.balance}} br
-            br
-            span
+
         div.main-block.saves-block
 
             div.main-block-elements(ng-repeat='save in my.userSaves track by $index ' )
@@ -112,3 +108,24 @@ section.container
                 input(type="button").btn-fun
                 span.elements-value 0 uah
 
+        //div.radio_buttons
+        //                div
+        //                    input#radio1(type='radio', name='option', checked='')
+        //                    label(for='radio1')
+        //                    svg(viewbox='0 0 60 40')
+        //                        path#Path-1(d='M21,2 C13.4580219,4.16027394 1.62349378,18.3117469 3,19 C9.03653312,22.0182666 25.2482171,10.3758914 30,8 C32.9363621,6.53181896 41.321398,1.67860195 39,4 C36.1186011,6.8813989 3.11316157,27.1131616 5,29 C10.3223659,34.3223659 30.6434647,19.7426141 35,18 C41.2281047,15.5087581 46.3445303,13.6554697 46,14 C42.8258073,17.1741927 36.9154967,19.650702 33,22 C30.3136243,23.6118254 17,31.162498 17,34 C17,40.4724865 54,12.4064021 54,17 C54,23.7416728 34,27.2286213 34,37', stroke-width='4', fill='none', stroke='orange', stroke-dasharray='270', stroke-dashoffset='-270')
+        //
+        //                div
+        //                    input#radio2(type='radio', name='option')
+        //                    label(for='radio2') 1
+        //                div
+        //                    input#radio3(type='radio', name='option')
+        //                    label(for='radio3') 1
+        //                div
+        //                    input#radio4(type='radio', name='option')
+        //                    label(for='radio4') 1
+        //            div
+        //                input(type='radio', checked='checked', name='chetyre')
+        //                input#chetyre2(type='radio', name='chetyre')
+        //                input#chetyre3(type='radio', name='chetyre')
+        //                div.some1

@@ -3,9 +3,6 @@
  */
 app.factory("userService", function ($http) {
     return {
-        balance: {
-            balance: 0
-        },
         users: [
             {
                 id: 1,
@@ -107,14 +104,8 @@ app.factory("userService", function ($http) {
         },
         getTotal:function(){
             return this.totalBalance
-        },
-
-        addBalance:function(balance){
-            this.balance=balance
-        },
-        getBalance:function () {
-            return this.balance;
         }
+
 
 
 
